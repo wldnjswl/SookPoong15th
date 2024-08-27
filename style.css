@@ -1,0 +1,75 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.image-row img {
+    width: 100%;
+    height: auto;
+}
+
+/* 기본적으로 모바일 이미지는 보이고, PC 이미지는 숨김 */
+.pc-only {
+    display: none;
+}
+
+/* 모바일 이미지가 보이도록 */
+@media (max-width: 767px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+/* PC 버전에서 이미지 설정 */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+    .pc-only {
+        display: block;
+        width: 100%;
+    }
+    .pc-only img {
+        width: 100%; /* PC 이미지가 전체 화면 너비에 맞춰지도록 설정 */
+    }
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+.loading-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #0002;
+    position: fixed;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #d5ffd1;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
